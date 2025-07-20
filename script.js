@@ -313,11 +313,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 top: `${linhaTop}px`,
                 left: `${slideLeft}px`,
                 width: `${slideWidth}px`,
-                background: "rgba(255, 255, 200, 0.95)",
+                color: `var(--cor-texto)`,
+                background: "var(--cor-fundo)",
                 fontSize: `var(--left-text-zoom)`,
                 borderRadius: "5px",
                 pointerEvents: "none",
-                boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+                boxShadow: "0 2px 5px var(--cor-fundo-shadow)",
                 zIndex: 999
               });
 
