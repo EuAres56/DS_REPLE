@@ -1350,3 +1350,23 @@ td.fin_rod {
         transform: translateY(0) scale(1);
     }
 }
+
+
+@media print {
+  /* Remove sombras, cores de fundo e itens desnecessários */
+  * {
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cada seção vira uma página */
+  .slide {
+    page-break-before: always;
+    page-break-after: always;
+    page-break-inside: avoid;
+}
