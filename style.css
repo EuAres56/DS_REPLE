@@ -1356,7 +1356,6 @@ td.fin_rod {
   /* Remove sombras, cores de fundo e itens desnecessários */
   * {
     box-shadow: none !important;
-    background: white !important;
   }
 
   body {
