@@ -1353,19 +1353,34 @@ td.fin_rod {
 
 
 @media print {
-  /* Remove sombras, cores de fundo e itens desnecessários */
-  * {
-    box-shadow: none !important;
-  }
-
   body {
     margin: 0;
     padding: 0;
   }
 
-  /* Cada seção vira uma página */
+  * {
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
   .slide {
+    /* Quebra de página ANTES e DEPOIS */
     page-break-before: always;
     page-break-after: always;
     page-break-inside: avoid;
+
+    /* Evita cortes */
+    break-inside: avoid;
+
+    /* Garante que ocupe a página toda */
+    height: 100vh;
+  }
+
+  html, body {
+    height: auto !important;
+  }
 }
