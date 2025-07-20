@@ -123,13 +123,10 @@ window.addEventListener("DOMContentLoaded", () => {
       }, 500);
     }, 500);
   } else {
-    console.log("registro achado")
     darkBtn.style.opacity = "1";
-    console.log("Btn dark ok")
     sumBtn.style.opacity = "1";
-    console.log("Btn sum ok")
+    zommBt.style.opacity = "1";
     html.style.overflowY = "auto";
-    console.log("body ok")
   }
 });
 
