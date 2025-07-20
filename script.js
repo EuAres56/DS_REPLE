@@ -174,20 +174,11 @@ const toggleBtn = document.getElementById('toggle-sumario');
 const sumario = document.getElementById('sumario-flutuante');
 const links = sumario.querySelectorAll('a');
 
-// Oculta botão se a tela for mobile
-// const isMobile = () => window.innerWidth <= 768;
-const isMobile = 0;
-
 // Toggle menu
 toggleBtn.addEventListener('click', () => {
   sumario.classList.toggle('ativo');
 
   toggleBtn.classList.toggle('oculto');
-
-  // testa se é mobile 
-  // if (!isMobile()) {
-  //   toggleBtn.classList.toggle('oculto');
-  // }
 });
 
 // Fecha ao clicar em um item do menu
@@ -196,10 +187,6 @@ links.forEach(link => {
     sumario.classList.remove('ativo');
     toggleBtn.classList.toggle('oculto');
 
-    // testa se é mobile 
-    // if (!isMobile()) {
-    //   toggleBtn.classList.toggle('oculto');
-    // }
   });
 });
 
@@ -216,10 +203,8 @@ document.addEventListener('click', (e) => {
 
 // Fecha menu se redimensionar a tela com ele aberto
 window.addEventListener('resize', () => {
-  if (!isMobile()) {
-    sumario.classList.remove('ativo');
-    toggleBtn.classList.remove('oculto');
-  }
+  sumario.classList.remove('ativo');
+  toggleBtn.classList.remove('oculto');
 });
 
 
