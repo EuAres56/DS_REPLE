@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação: Pesquisa Demográfica do Complexo da Penha</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.addEventListener("DOMContentLoaded", () => {
+                document.getElementById("body_theme").classList.add("dark_theme");
+            });
+        }
+    </script>
+</head>
+
+<body id="body_theme">
+    <button id="toggle-theme" onclick="dark_theme()" aria-label="Alternar Tema">
+        🌞
+    </button>
+
+    <!-- Botão retrátil -->
+    <button id="toggle-sumario" aria-label="Abrir ou fechar sumário">☰</button>
+    <!-- Botão do zoom no texto -->
+    <button id="toggle-destaque" aria-label="Alternar destaque de linha">
+        <span id="icon-lupa">🔍</span>
+    </button>
+
+    <!-- Sumario flutuante lateral -->
+    <nav id="sumario-flutuante">
+        <ul class="sumario-lista blur-backdrop">
+            <!-- Demografia -->
+            <li class="topico">
+                <a href="#intro">🏠 Inicio</a>
+                <a href="#sumario-principal">🔡 Sumário</a>
+
+            </li>
+            <li class="topico">
+                <a href="#demog">📊 Demografia</a>
+                <ul class="subtopicos">
+                    <li><a href="#demog-visao-geral">Visão Geral</a></li>
+                    <li><a href="#demog-populacao-jovem">População Jovem</a></li>
+                    <li><a href="#demog-resumo-dados">Totais e Conclusões</a></li>
+                </ul>
+            </li>
+
+            <!-- Educação -->
+            <li class="topico">
+                <a href="#educ">🎓 Educação</a>
+                <ul class="subtopicos">
+                    <li><a href="#educ-ideb">O que é o IDEB?</a></li>
+                    <li><a href="#educ-compartivo-ideb">Comparativo IDEB</a></li>
+                    <li><a href="#educ-classificacao-ideb">Classificação IDEB</a></li>
+                </ul>
+            </li>
+
+            <!-- Criminalidade -->
+            <li class="topico">
+                <a href="#crim">🚨 Criminalidade</a>
+                <ul class="subtopicos">
+                    <li><a href="crim-cisp22">CISP 22</a></li>
+                    <li><a href="#crim-indices">Índices em Destaque</a></li>
+                    <li><a href="#crim-proporcoes">Proporção</a></li>
+                </ul>
+            </li>
+
+            <!-- Conclusão e Bibliografia -->
+            <li class="topico"><a href="#bibli">📚 Bibliografia</a></li>
+            <li class="topico"><a href="#bibli-ferramentas">💻 Técnologias</a></li>
+            <li class="topico"><a href="#encer">🤝 Encerramento</a></li>
+        </ul>
+    </nav>
+
+    <!-- Capa principal -->
+    <section class="slide slide-capa-geral" id="intro">
+        <div class="intro-content">
+            <h1 class="intro-title">Complexo da Penha</h1>
+            <p class="intro-subtitle">Demografia, Educação e Segurança em Dados</p>
+        </div>
+    </section>
+
+    <!-- Sobreposição de introdução -->
+    <div id="overlay">
+        <div id="tooltip1" class="tooltip">Este botão ativa o modo escuro para melhor contraste visual.</div>
+
+        <div id="tooltip2" class="tooltip">Este botão abre um menu lateral com o conteúdo da página.</div>
+
+        <div id="tooltip3" class="tooltip">Este botão abre adicina zoom aos textos facilitando a leitura.</div>
+    </div>
+
+    <!-- Sumário -->
+    <section class="slide slide-sumario" id="sumario-principal">
+        <div class="sumario-container">
+            <h2>Sumário</h2>
+            <ul class="sumario-lista">
+                <!-- Demografia -->
+                <li class="topico">
+                    <a href="#intro">🏠 Inicio</a>
+                    <a href="#sumario-principal">🔡 Sumário</a>
+
+                </li>
+                <li class="topico">
+                    <a href="#demog">📊 Demografia</a>
+                    <ul class="subtopicos">
+                        <li><a href="#demog-visao-geral">Visão Geral</a></li>
+                        <li><a href="#demog-populacao-jovem">População Jovem</a></li>
+                        <li><a href="#demog-resumo-dados">Totais e Conclusões</a></li>
+                    </ul>
+                </li>
+
+                <!-- Educação -->
+                <li class="topico">
+                    <a href="#educ">🎓 Educação</a>
+                    <ul class="subtopicos">
+                        <li><a href="#educ-ideb">O que é o IDEB?</a></li>
+                        <li><a href="#educ-compartivo-ideb">Comparativo IDEB</a></li>
+                        <li><a href="#educ-classificacao-ideb">Classificação IDEB</a></li>
+                    </ul>
+                </li>
+
+                <!-- Criminalidade -->
+                <li class="topico">
+                    <a href="#crim">🚨 Criminalidade</a>
+                    <ul class="subtopicos">
+                        <li><a href="crim-cisp22">CISP 22</a></li>
+                        <li><a href="#crim-indices">Índices em Destaque</a></li>
+                        <li><a href="#crim-proporcoes">Proporção</a></li>
+                    </ul>
+                </li>
+
+                <!-- Conclusão e Bibliografia -->
+                <li class="topico"><a href="#bibli">📚 Bibliografia</a></li>
+                <li class="topico"><a href="#bibli-ferramentas">💻 Técnologias</a></li>
+                <li class="topico"><a href="#encer">🤝 Encerramento</a></li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Slide Capa: Demografia -->
+    <section class="slide slide-capa" id="demog">
+        <div class="marker-page cat-demografia">
+            <p>DEMOGRAFIA</p>
+        </div>
+        <h1 class="capa-titulo">Análise Demográfica do Complexo da Penha</h1>
+        <p class="capa-descricao">Distribuição populacional, estrutura etária, raça/cor e características dos
+            domicílios.</p>
+    </section>
+
+    <!-- Análise por Comunidade - Visão Geral -->
+    <section class="slide" id="demog-visao-geral">
+        <div class="marker-page cat-demografia">
+            <p>DEMOGRÁFIA</p>
+        </div>
+        <h1 id="visao-geral">Análise por Comunidade - Visão Geral</h1>
+
+
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="ini_cab">Comunidade</th>
+                        <th>Área (km²)</th>
+                        <th>Dens. Demográfica (hab/km²)</th>
+                        <th>Pop. Estimada</th>
+                        <th class="fin_cab">Pop. 5-19 anos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Vila Cruzeiro</strong></td>
+                        <td>0,370 km²</td>
+                        <td>37.614 hab/km²</td>
+                        <td>13.906</td>
+                        <td>3.247</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vila Proletária</strong></td>
+                        <td>0,119 km²</td>
+                        <td>39.899 hab/km²</td>
+                        <td>4.760</td>
+                        <td>977</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kelson's</strong></td>
+                        <td>0,193 km²</td>
+                        <td>23.504 hab/km²</td>
+                        <td>4.534</td>
+                        <td>824</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quatro Bicas</strong></td>
+                        <td>0,090 km²</td>
+                        <td>36.257 hab/km²</td>
+                        <td>3.274</td>
+                        <td>649</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cascatinha</strong></td>
+                        <td>0,163 km²</td>
+                        <td>17.434 hab/km²</td>
+                        <td>2.840</td>
+                        <td>625</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Morro da Fé</strong></td>
+                        <td>0,094 km²</td>
+                        <td>18.961 hab/km²</td>
+                        <td>1.788</td>
+                        <td>339</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chatuba</strong></td>
+                        <td>0,134 km²</td>
+                        <td>13.154 hab/km²</td>
+                        <td>1.760</td>
+                        <td>371</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Morro do Caracol</strong></td>
+                        <td>0,101 km²</td>
+                        <td>16.627 hab/km²</td>
+                        <td>1.676</td>
+                        <td>390</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Morro da Caixa D'Água</strong></td>
+                        <td>0,097 km²</td>
+                        <td>14.451 hab/km²</td>
+                        <td>1.396</td>
+                        <td>240</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Merendiba</strong></td>
+                        <td>0,046 km²</td>
+                        <td>25.599 hab/km²</td>
+                        <td>1.175</td>
+                        <td>237</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Palestina da Penha</strong></td>
+                        <td>0,066 km²</td>
+                        <td>14.122 hab/km²</td>
+                        <td>925</td>
+                        <td>161</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grotão</strong></td>
+                        <td>0,057 km²</td>
+                        <td>9.491 hab/km²</td>
+                        <td>541</td>
+                        <td>98</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Morro do Sereno</strong></td>
+                        <td>0,054 km²</td>
+                        <td>7.300 hab/km²</td>
+                        <td>392</td>
+                        <td>84</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estradinha</strong></td>
+                        <td>0,014 km²</td>
+                        <td>28.116 hab/km²</td>
+                        <td>388</td>
+                        <td>91</td>
+                    </tr>
+                    <tr>
+                        <td class="ini_rod"><strong>Morro da Paz</strong></td>
+                        <td>0,027 km²</td>
+                        <td>8.852 hab/km²</td>
+                        <td>239</td>
+                        <td class="fin_rod">60</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- Análise Detalhada - População Jovem (5 a 19 anos) -->
+    <section class="slide" id="demog-populacao-jovem">
+        <div class="marker-page cat-demografia">
+            <p>DEMOGRÁFIA</p>
+        </div>
+        <h1 id="populacao-jovem">Análise Detalhada - População Jovem (5 a 19 anos)</h1>
+        <ul>
+            <li class="list-item"><strong>População Jovem Total:</strong> 8.394 pessoas</li>
+            <li class="list-item"><strong>Representatividade:</strong> Essa faixa etária corresponde a
+                <strong>22,77%</strong> da população total do Complexo da Penha.
+            </li>
+        </ul>
+
+        <h2>Proporção de Crianças e adolescentes (5 a 19 anos) por comunidade.</h2>
+        <div class="bar-chart-horizontal">
+            <div class="bar" style="--width: 70.05%" data-label="Vila Cruzeiro (23,35%)"></div>
+            <div class="bar" style="--width: 61.59%" data-label="Vila Proletária (20,53%)"></div>
+            <div class="bar" style="--width: 54.51%" data-label="Kelson's (18,17%)"></div>
+            <div class="bar" style="--width: 59.46%" data-label="Quatro Bicas (19,82%)"></div>
+            <div class="bar" style="--width: 66.03%" data-label="Cascatinha (22,01%)"></div>
+            <div class="bar" style="--width: 56.88%" data-label="Morro da Fé (18,96%)"></div>
+            <div class="bar" style="--width: 63.24%" data-label="Chatuba (21,08%)"></div>
+            <div class="bar" style="--width: 69.81%" data-label="Caracol (23,27%)"></div>
+            <div class="bar" style="--width: 51.57%" data-label="Caixa D'Água (17,19%)"></div>
+            <div class="bar" style="--width: 60.51%" data-label="Merendiba (20,17%)"></div>
+            <div class="bar" style="--width: 52.23%" data-label="Palestina (17,41%)"></div>
+            <div class="bar" style="--width: 54.33%" data-label="Grotão (18,11%)"></div>
+            <div class="bar" style="--width: 64.29%" data-label="Sereno (21,43%)"></div>
+            <div class="bar" style="--width: 70.35%" data-label="Estradinha (23,45%)"></div>
+            <div class="bar" style="--width: 75.30%" data-label="Morro da Paz (25,10%)"></div>
+        </div>
+    </section>
+
+    <!-- Totais do Complexo da Penha // Principais Conclusões -->
+    <section class="slide" id="demog-resumo-dados">
+        <div class="marker-page cat-demografia">
+            <p>DEMOGRÁFIA</p>
+        </div>
+        <h1 id="totais">Totais do Complexo da Penha</h1>
+        <ul>
+            <li class="list-item"><strong>Área Total:</strong> 1,605 km²</li>
+            <li class="list-item"><strong>Densidade Demográfica Média:</strong> 22.961 hab/km²</li>
+            <li class="list-item"><strong>População Total Estimada:</strong> 36.864 habitantes</li>
+            <li class="list-item"><strong>População de Jovens (5 a 19 anos):</strong> 8.394 jovens</li>
+        </ul>
+
+        <h1>Principais Conclusões</h1>
+        <ul>
+            <li class="list-item">O Complexo da Penha é uma área de alta densidade demográfica, com a <strong>Vila
+                    Proletária</strong> e a <strong>Vila Cruzeiro</strong> apresentando as maiores concentrações de
+                habitantes por km².</li>
+            <li class="list-item">A <strong>Vila Cruzeiro</strong> se destaca como a comunidade mais populosa, abrigando
+                mais de 13 mil habitantes.</li>
+            <li class="list-item">A população jovem (5 a 19 anos) é significativa, representando mais de
+                <strong>20%</strong> do total, o que ressalta a importância de programas e iniciativas voltadas para
+                essa faixa etária.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Slide Capa: Educação -->
+    <section class="slide slide-capa" id="educ>
+        <div class=" marker-page cat-educacao">
+        <p>EDUCAÇÃO</p>
+        </div>
+        <h1 class="capa-titulo">Panorama Educacional do Complexo da Penha</h1>
+        <p class="capa-descricao">Indicadores de IDEB, estrutura das escolas e níveis de aprendizagem dos estudantes.
+        </p>
+    </section>
+
+    <!-- O que é o IDEB? -->
+    <section class="slide" id="educ-ideb">
+        <div class="marker-page cat-educacao">
+            <p>EDUCAÇÃO</p>
+        </div>
+
+        <h1 id="ideb">O que é o IDEB?</h1>
+
+        <p>O <strong>Índice de Desenvolvimento da Educação Básica (IDEB)</strong> é um indicador oficial que avalia a
+            qualidade da educação nas escolas públicas brasileiras. Ele combina o desempenho dos alunos em avaliações
+            nacionais com a taxa de aprovação escolar.</p>
+
+        <p>É uma ferramenta estratégica usada por gestores públicos para planejar melhorias na educação, acompanhar
+            avanços e estabelecer metas educacionais em níveis municipal, estadual e federal.</p>
+
+        <p><strong>O IDEB é composto por dois principais fatores:</strong></p>
+
+        <ul>
+            <li class="list-item"><strong>Taxa de Aprovação:</strong> Mede o fluxo escolar — ou seja, a porcentagem de
+                alunos que avançam de ano sem repetência.</li>
+            <li class="list-item"><strong>Desempenho em exames padronizados:</strong> A nota média dos alunos em Língua
+                Portuguesa e Matemática no SAEB.</li>
+        </ul>
+
+        <p><strong>Fórmula de Cálculo do IDEB:</strong></p>
+
+        <!-- Fórmula desenhada -->
+        <div id="box-formula">
+            <div id="box-formula-legenda">
+                <strong>
+                    <p style="color: rgb(209, 115, 209);">TA: Taxa de aprovação</p>
+                    <p style="color: rgb(207, 102, 102);">NP: Nota de português</p>
+                    <p style="color: rgb(114, 172, 199);">NM: Nota de Matemática</p>
+                </strong>
+            </div>
+            <div class="formula-ideb">
+                <span class="formula-element">IDEB =</span>
+                <span class="formula-element" style="color: rgb(209, 115, 209);">TA</span>
+                <span class="formula-element">×</span>
+                <span class="formula-fraction">
+                    <span class="formula-numerator" style="color: rgb(207, 102, 102);">
+                        NP
+                        <span class="formula-element" style="color: var(--cor-texto);">
+                            +
+                            <span style="color: rgb(114, 172, 199);">
+                                NM
+                            </span>
+                        </span>
+                    </span>
+                    <span class="formula-denominator">2</span>
+                </span>
+            </div>
+        </div>
+
+        <p><strong>Obs.:</strong> As notas variam de 0 a 10 e a taxa de aprovação é expressa como decimal (ex: 0,92 para
+            92%).</p>
+    </section>
+
+    <!-- Comparativo de Notas IDEB (2019, 2021, 2023) -->
+    <section class="slide" id="educ-compartivo-ideb">
+        <div class="marker-page  cat-educacao">
+            <p>EDUCAÇÃO</p>
+        </div>
+        <h1 id="comparativo-ideb">Comparativo de Notas IDEB (2019, 2021, 2023)</h1>
+        <p><strong>Nota metodológica:</strong> Para o cálculo da média do IDEB referente ao Complexo da Penha, foram
+            consideradas apenas as escolas com dados disponíveis nos levantamentos oficiais do INEP (Instituto Nacional
+            de Estudos e Pesquisas Educacionais Anísio Teixeira). As escolas foram agrupadas por etapa de ensino: Anos
+            Iniciais do Ensino Fundamental, Anos Finais do Ensino Fundamental e Ensino Médio.</p>
+
+        <p>Dentro de cada etapa, foi realizada a média simples entre as notas de todas as escolas com dados disponíveis.
+            Escolas sem nota registrada para um determinado ano ou etapa foram desconsideradas do cálculo, a fim de
+            manter a integridade dos resultados. Portanto, os valores apresentados representam uma média representativa
+            apenas das escolas com dados divulgados, podendo haver pequenas variações em relação à realidade geral da
+            região.</p>
+
+        <p>Essa metodologia foi aplicada de forma independente para cada ano analisado (2019, 2021 e 2023), permitindo
+            observar a evolução do desempenho educacional das escolas da região em comparação com as médias do Município
+            e do Estado do Rio de Janeiro.</p>
+
+        <p>Abaixo, a evolução do IDEB comparando as escolas do Complexo da Penha com as médias do Município e do Estado.
+        </p>
+
+        <h3>Ensino Fundamental 1</h3>
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="ini_cab">Local</th>
+                        <th>IDEB 2019</th>
+                        <th>IDEB 2021</th>
+                        <th class="fin_cab">IDEB 2023</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Complexo da Penha</td>
+                        <td>5,01</td>
+                        <td>5,10</td>
+                        <td>4,56</td>
+                    </tr>
+                    <tr>
+                        <td>Município do Rio de Janeiro</td>
+                        <td>6,10</td>
+                        <td>6,40</td>
+                        <td>6,00</td>
+                    </tr>
+                    <tr>
+                        <td class="ini_rod">Estado do Rio de Janeiro</td>
+                        <td>5,40</td>
+                        <td>5,30</td>
+                        <td class="fin_rod">5,80</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Ensino Fundamental 2</h3>
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="ini_cab">Local</th>
+                        <th>IDEB 2019</th>
+                        <th>IDEB 2021</th>
+                        <th class="fin_cab">IDEB 2023</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Complexo da Penha</td>
+                        <td>4,10</td>
+                        <td>4,10</td>
+                        <td>4,10</td>
+                    </tr>
+                    <tr>
+                        <td>Município do Rio de Janeiro</td>
+                        <td>4,65</td>
+                        <td>5,50</td>
+                        <td>5,70</td>
+                    </tr>
+                    <tr>
+                        <td class="ini_rod">Estado do Rio de Janeiro</td>
+                        <td>4,80</td>
+                        <td>4,65</td>
+                        <td class="fin_rod">4,15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Ensino Médio</h3>
+        <div class="box-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="ini_cab">Local</th>
+                        <th>IDEB 2019</th>
+                        <th>IDEB 2021</th>
+                        <th class="fin_cab">IDEB 2023</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Complexo da Penha</td>
+                        <td>2,50</td>
+                        <td>3,25</td>
+                        <td>2,90</td>
+                    </tr>
+                    <tr>
+                        <td>Município do Rio de Janeiro</td>
+                        <td>3,20</td>
+                        <td>4,00</td>
+                        <td>3,00</td>
+                    </tr>
+                    <tr>
+                        <td class="ini_rod">Estado do Rio de Janeiro</td>
+                        <td>3,50</td>
+                        <td>3,90</td>
+                        <td class="fin_rod">3,30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Classificação das Escolas por Nível de IDEB 2023 -->
+    <section class="slide" id="educ-classificacao-ideb">
+        <div class="marker-page  cat-educacao">
+            <p>EDUCAÇÃO</p>
+        </div>
+        <h1 id="classificacao-ideb">Classificação das Escolas por Nível de IDEB 2023</h1>
+        <details class="box-criterios" open>
+            <summary><strong>ℹ️ Entenda os Critérios de Classificação</strong></summary>
+            <div class="classificacao-nota-explicacao">
+                <p><strong>A meta nacional do IDEB é 6</strong>. Embora essa nota esteja distante da nota máxima (10),
+                    ela representa um patamar básico desejado para a educação brasileira.</p>
+
+                <p>Com isso, utilizamos três faixas de interpretação:</p>
+
+                <div class="nivel-box nivel-regular">
+                    <strong>✅ Regular (IDEB ≥ 5,5):</strong>
+                    <p>Desempenho razoável, ainda abaixo da meta, mas com estabilidade e potencial de crescimento.</p>
+                </div>
+
+                <div class="nivel-box nivel-alerta">
+                    <strong>⚠️ Alerta (5,0 ≤ IDEB &lt; 5,5):</strong>
+                    <p>Sinal de atenção: risco de queda no desempenho. Requer ações pontuais para evitar retrocessos.
+                    </p>
+                </div>
+
+                <div class="nivel-box nivel-critico">
+                    <strong>🚨 Crítico (IDEB &lt; 5,0):</strong>
+                    <p>Situação preocupante. As escolas precisam de apoio imediato para garantir o aprendizado dos
+                        alunos.</p>
+                </div>
+
+                <p><em>Esse modelo considera que mesmo a meta de 6 já é modesta, por isso é essencial acompanhar a
+                        trajetória das escolas e apoiar avanços graduais rumo à qualidade ideal.</em></p>
+            </div>
+        </details>
+
+        <p>
+            Análise feita com notas 2023, o ano da avaliação mais recente.
+        </p>
+        <p>
+            <em>Critérios de Classificação: Regular (>5,5), Alerta (5,0 - 5,5), Crítico (<5,0) </em>
+        </p>
+
+        <h3>Ensino Fundamental 1</h3>
+        <ul>
+            <li class="list-item nivel-regular"><strong>Regular:</strong> EM LUIZ CESAR SAYAO GARCEZ (6,5), CIEP
+                GREGORIO BEZERRA (6,6), EM PROFESSOR AUGUSTO MOTTA (5,7)</li>
+            <li class="list-item nivel-alerta"><strong>Alerta:</strong> EM BRANT HORTA (5,5), EM CANTOR E COMPOSITOR
+                GONZAGUINHA (5,5), CIEP MAESTRO FRANCISCO MIGNONE (5,1), EM JORACY CAMARGO (5,2), EM MONSENHOR ROCHA
+                (5,1)</li>
+            <li class="list-item nivel-critico"><strong>Crítico:</strong> CIEP DEPUTADO JOSE CARLOS BRANDAO MONTEIRO
+                (4,5), EM LEONOR COELHO PEREIRA (4,8)</li>
+            <li class="list-item sem-informacao"><strong>Sem Informação:</strong> EM OILDON DE ANDRADE, COL NOSSA
+                SENHORA DA PENHA</li>
+        </ul>
+
+        <h3>Ensino Fundamental 2</h3>
+        <ul>
+            <li class="list-item nivel-regular"><strong>Regular:</strong> EM CHILE (5,7)</li>
+            <li class="list-item nivel-alerta"><strong>Alerta:</strong> EM BRANT HORTA (5,0)</li>
+            <li class="list-item nivel-critico"><strong>Crítico:</strong> EM OILDON DE ANDRADE (4,5), EM BERNARDO DE
+                VASCONCELLOS (4,2), EM LEONOR COELHO PEREIRA (4,7)</li>
+            <li class="list-item sem-informacao"><strong>Sem Informação:</strong> COL NOSSA SENHORA DA PENHA</li>
+        </ul>
+
+        <h3>Ensino Médio</h3>
+        <ul>
+            <li class="list-item nivel-critico"><strong>Crítico:</strong> CE BRANT HORTA (3,6), CE BERNARDO DE
+                VASCONCELLOS (2,9)</li>
+            <li class="list-item sem-informacao"><strong>Sem Informação:</strong> CE GOMES FREIRE DE ANDRADE, CE
+                PROFESSOR AUGUSTO MOTTA, COL NOSSA SENHORA DA PENHA</li>
+        </ul>
+    </section>
+
+
+    <!-- Slide Capa: Criminalidade -->
+    <section class="slide slide-capa" id="crim">
+        <div class="marker-page cat-criminalidade">
+            <p>CRIMINALIDADE</p>
+        </div>
+        <h1 class="capa-titulo">Contexto da Criminalidade na Região</h1>
+        <p class="capa-descricao">Análise da atuação da CISP 22, ocorrências criminais e comparativos com município e
+            estado.</p>
+    </section>
+
+    <!-- Análise de Criminalidade - CISP 22 -->
+    <section class="slide" id="crim-cisp22">
+        <div class="marker-page cat-criminalidade">
+            <p>CRIMINALIDADE</p>
+        </div>
+
+        <h1 id="criminalidade">Análise de Criminalidade - CISP 22</h1>
+
+        <p><strong>CISP</strong> significa <strong>Circunscrição Integrada de Segurança Pública</strong> e representa
+            uma subdivisão territorial criada para integrar e organizar a atuação conjunta das forças de segurança —
+            Polícia Civil e Polícia Militar — no estado do Rio de Janeiro. Cada CISP está inserida em um sistema
+            hierárquico mais amplo composto por outras áreas:</p>
+
+        <ul>
+            <li><strong>RISP</strong> – Região Integrada de Segurança Pública: divisão macrorregional que agrupa
+                diversas áreas de segurança.</li>
+            <li><strong>AISP</strong> – Área Integrada de Segurança Pública: divisão intermediária, que agrupa bairros e
+                comunidades com dinâmicas semelhantes de segurança.</li>
+            <li><strong>CISP</strong> – Circunscrição Integrada de Segurança Pública: unidade mais local, geralmente
+                ligada diretamente a um ou mais bairros ou regiões específicas.</li>
+        </ul>
+
+        <p>A <strong>CISP 22</strong> abrange a região da Penha, zona norte do Rio de Janeiro, e é a principal unidade
+            de análise para compreender a dinâmica da criminalidade que afeta o <strong>Complexo da Penha</strong>. Essa
+            CISP inclui os bairros e comunidades do entorno, sendo historicamente associada à atuação de grupos armados
+            e operações policiais frequentes.</p>
+
+        <p>É importante ressaltar que algumas comunidades tradicionalmente associadas ao Complexo da Penha — como o
+            <strong>Morro da Caixa D'Água</strong>, <strong>Morro da Fé</strong> e <strong>Morro da Paz</strong> — estão
+            tecnicamente sob jurisdição da <strong>CISP 38</strong>. No entanto, na prática, essas áreas são
+            frequentemente englobadas em análises e operações realizadas pela CISP 22, devido à sua conexão geográfica,
+            social e operacional com a Penha.
+        </p>
+
+        <h3>Mapa da área de atuação da CISP 22 e comunidades do Complexo da Penha</h3>
+
+        <div id="map-cisp">
+            <iframe src="src/maps/mapa_complexo_penha.html" width="100%" height="400" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Índices de Criminalidade em Destaque -->
+    <section class="slide" id="crim-indices">
+        <div class="marker-page  cat-criminalidade">
+            <p>CRIMINALIDADE</p>
+        </div>
+        <h1 id="indices-crime">Números Criminais por Semestre</h1>
+
+        <div class="carousel-container">
+            <a onclick="carrosel_left(this)" class="carousel-arrow left"><span>&#10094;</span></a>
+            <div class="carousel-slides">
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 1º Semestre (2021)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>82</td>
+                                    <td>2.207</td>
+                                    <td>7.994</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>417</td>
+                                    <td>14.354</td>
+                                    <td>37.598</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>16</td>
+                                    <td>769</td>
+                                    <td>2.506</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>1.424</td>
+                                    <td>54.118</td>
+                                    <td>97.318</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>1.230</td>
+                                    <td>31.893</td>
+                                    <td>54.345</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>578</td>
+                                    <td>17.536</td>
+                                    <td>30.139</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>66</td>
+                                    <td>4.840</td>
+                                    <td>22.243</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>288</td>
+                                    <td>9.094</td>
+                                    <td>25.376</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>4.101</strong></td>
+                                    <td><strong>134.811</strong></td>
+                                    <td class="fin_rod"><strong>278.435</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 2º Semestre (2021)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>67</td>
+                                    <td>1.838</td>
+                                    <td>6.811</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>360</td>
+                                    <td>13.753</td>
+                                    <td>36.353</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>14</td>
+                                    <td>831</td>
+                                    <td>2.604</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>1.159</td>
+                                    <td>47.720</td>
+                                    <td>84.816</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>1.008</td>
+                                    <td>36.019</td>
+                                    <td>60.281</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>763</td>
+                                    <td>23.732</td>
+                                    <td>42.775</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>43</td>
+                                    <td>4.003</td>
+                                    <td>21.487</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>249</td>
+                                    <td>8.804</td>
+                                    <td>24.916</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>3.663</strong></td>
+                                    <td><strong>136.700</strong></td>
+                                    <td class="fin_rod"><strong>280.043</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 1º Semestre (2022)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>142</td>
+                                    <td>2.009</td>
+                                    <td>6.754</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>432</td>
+                                    <td>15.315</td>
+                                    <td>39.618</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>19</td>
+                                    <td>898</td>
+                                    <td>2.742</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>1.280</td>
+                                    <td>50.466</td>
+                                    <td>84.090</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>1.074</td>
+                                    <td>50.565</td>
+                                    <td>79.832</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>867</td>
+                                    <td>34.513</td>
+                                    <td>63.768</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>42</td>
+                                    <td>3.761</td>
+                                    <td>21.176</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>274</td>
+                                    <td>9.895</td>
+                                    <td>27.238</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>4.130</strong></td>
+                                    <td><strong>167.422</strong></td>
+                                    <td class="fin_rod"><strong>325.218</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 2º Semestre (2022)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>147</td>
+                                    <td>2.115</td>
+                                    <td>7.265</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>420</td>
+                                    <td>16.010</td>
+                                    <td>41.297</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>27</td>
+                                    <td>1.013</td>
+                                    <td>2.885</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>1.388</td>
+                                    <td>51.462</td>
+                                    <td>86.395</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>1.057</td>
+                                    <td>52.230</td>
+                                    <td>82.257</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>836</td>
+                                    <td>33.200</td>
+                                    <td>62.574</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>26</td>
+                                    <td>3.954</td>
+                                    <td>20.432</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>262</td>
+                                    <td>10.698</td>
+                                    <td>28.665</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>4.163</strong></td>
+                                    <td><strong>170.682</strong></td>
+                                    <td class="fin_rod"><strong>331.770</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 1º Semestre (2023)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>114</td>
+                                    <td>2.537</td>
+                                    <td>7.499</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>460</td>
+                                    <td>16.730</td>
+                                    <td>43.001</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>26</td>
+                                    <td>881</td>
+                                    <td>2.805</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>966</td>
+                                    <td>43.462</td>
+                                    <td>73.727</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>896</td>
+                                    <td>52.329</td>
+                                    <td>82.025</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>838</td>
+                                    <td>31.432</td>
+                                    <td>60.371</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>51</td>
+                                    <td>3.914</td>
+                                    <td>23.218</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>306</td>
+                                    <td>11.703</td>
+                                    <td>32.116</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>3.657</strong></td>
+                                    <td><strong>162.988</strong></td>
+                                    <td class="fin_rod"><strong>324.762</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 2º Semestre (2023)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>109</td>
+                                    <td>2.015</td>
+                                    <td>6.450</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>457</td>
+                                    <td>18.257</td>
+                                    <td>46.216</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>19</td>
+                                    <td>920</td>
+                                    <td>2.723</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>878</td>
+                                    <td>41.460</td>
+                                    <td>69.244</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>1.107</td>
+                                    <td>54.349</td>
+                                    <td>84.618</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>884</td>
+                                    <td>33.104</td>
+                                    <td>63.224</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>36</td>
+                                    <td>3.317</td>
+                                    <td>22.182</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>296</td>
+                                    <td>11.584</td>
+                                    <td>32.053</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>3.786</strong></td>
+                                    <td><strong>165.006</strong></td>
+                                    <td class="fin_rod"><strong>326.710</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 1º Semestre (2024)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>88</td>
+                                    <td>2.297</td>
+                                    <td>6.534</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>493</td>
+                                    <td>19.554</td>
+                                    <td>48.957</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>27</td>
+                                    <td>1.038</td>
+                                    <td>2.924</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>955</td>
+                                    <td>49.309</td>
+                                    <td>78.094</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>941</td>
+                                    <td>58.616</td>
+                                    <td>91.776</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>995</td>
+                                    <td>39.483</td>
+                                    <td>74.793</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>58</td>
+                                    <td>3.723</td>
+                                    <td>24.739</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>257</td>
+                                    <td>13.221</td>
+                                    <td>36.050</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>3.814</strong></td>
+                                    <td><strong>187.241</strong></td>
+                                    <td class="fin_rod"><strong>363.867</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <h3>Crimes Cometidos - 2º Semestre (2024)</h3>
+                    <div class="box-carousel-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="ini_cab">CRIME</th>
+                                    <th>CISP 22</th>
+                                    <th>Município RJ</th>
+                                    <th class="fin_cab">Estado RJ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HOMICÍDIOS</td>
+                                    <td>95</td>
+                                    <td>2.212</td>
+                                    <td>6.445</td>
+                                </tr>
+                                <tr>
+                                    <td>LESÕES</td>
+                                    <td>594</td>
+                                    <td>19.676</td>
+                                    <td>49.009</td>
+                                </tr>
+                                <tr>
+                                    <td>ESTUPROS</td>
+                                    <td>25</td>
+                                    <td>991</td>
+                                    <td>2.895</td>
+                                </tr>
+                                <tr>
+                                    <td>ROUBOS</td>
+                                    <td>1.104</td>
+                                    <td>53.607</td>
+                                    <td>87.346</td>
+                                </tr>
+                                <tr>
+                                    <td>FURTOS</td>
+                                    <td>920</td>
+                                    <td>55.559</td>
+                                    <td>87.753</td>
+                                </tr>
+                                <tr>
+                                    <td>PATRIMONIAIS</td>
+                                    <td>827</td>
+                                    <td>37.655</td>
+                                    <td>72.536</td>
+                                </tr>
+                                <tr>
+                                    <td>DROGAS</td>
+                                    <td>58</td>
+                                    <td>3.132</td>
+                                    <td>23.467</td>
+                                </tr>
+                                <tr>
+                                    <td>AMEAÇAS</td>
+                                    <td>247</td>
+                                    <td>12.118</td>
+                                    <td>33.830</td>
+                                </tr>
+                                <tr>
+                                    <td class="ini_rod"><strong>TOTAL</strong></td>
+                                    <td><strong>3.870</strong></td>
+                                    <td><strong>184.950</strong></td>
+                                    <td class="fin_rod"><strong>363.281</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a onclick="carrosel_right(this)" class="carousel-arrow right"><span>&#10095;</span></a>
+        </div>
+
+        <h1>Índices de Criminalidade em Destaque por Ano</h1>
+        <p>Análise das proporções de criminalidade, comparando o total de ocorrências entre CISP 22, Município e Estado.
+        </p>
+
+        <div class="indices-grid">
+            <div>
+                <h4><strong>2021</strong></h4>
+                <ul>
+                    <li>Os crimes da CISP 22 representaram <strong>2,86%</strong> do total do Município.</li>
+                    <li>Os crimes do Município representaram <strong>48,52%</strong> do total do Estado.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4><strong>2022</strong></h4>
+                <ul>
+                    <li>Os crimes da CISP 22 representaram <strong>2,45%</strong> do total do Município.</li>
+                    <li>Os crimes do Município representaram <strong>51,46%</strong> do total do Estado.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4><strong>2023</strong></h4>
+                <ul>
+                    <li>Os crimes da CISP 22 representaram <strong>2,26%</strong> do total do Município.</li>
+                    <li>Os crimes do Município representaram <strong>50,35%</strong> do total do Estado.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4><strong>2024</strong></h4>
+                <ul>
+                    <li>Os crimes da CISP 22 representaram <strong>2,06%</strong> do total do Município.</li>
+                    <li>Os crimes do Município representaram <strong>51,18%</strong> do total do Estado.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusão: Análise de Proporções da CISP 22 -->
+    <section class="slide" id="crim-proporcoes">
+        <div class="marker-page cat-criminalidade">
+            <p>CRIMINALIDADE</p>
+        </div>
+
+        <h1 id="conclusao">Conclusão: Análise de Proporções da CISP 22</h1>
+
+        <p>
+            A partir da comparação semestral entre os anos de 2021 e 2024, observa-se uma redução percentual na
+            participação da <strong>CISP 22</strong> no total de crimes registrados no município do Rio de Janeiro.
+        </p>
+
+        <p>
+            No entanto, essa queda proporcional não significa uma diminuição real da criminalidade local. Na verdade, os
+            números da CISP 22 têm se mantido relativamente estáveis, com variações pouco significativas ao longo dos
+            semestres.
+        </p>
+
+        <p>
+            O que explica a redução percentual é o fato de que tanto o <strong>município</strong> quanto o
+            <strong>estado</strong> vêm registrando aumentos consistentes nas ocorrências, especialmente em outras
+            regiões.
+        </p>
+
+        <p>
+            Essa tendência pode gerar uma <strong>falsa percepção de melhora</strong> na segurança da CISP 22, quando,
+            na prática, trata-se de uma <strong>estabilidade em meio ao crescimento geral da criminalidade</strong> no
+            município e no estado do Rio de Janeiro.
+        </p>
+
+        <p>
+            É fundamental que essa estabilidade seja interpretada com cautela, pois embora não haja agravamento
+            evidente, também não há avanços significativos na redução dos indicadores da região.
+        </p>
+    </section>
+
+    <!-- Slide: Bibliografia -->
+    <section class="slide slide-bibliografia" id="bibli">
+        <div class="marker-page cat-bibliografia">
+            <p>BIBLIOGRAFIA</p>
+        </div>
+        <h1 class="capa-titulo">Referências e Fontes Utilizadas</h1>
+
+        <div class="bibliografia-grupo">
+            <h2>Referências Geográficas</h2>
+            <ul>
+                <li><a href="http://rio-de-janeiro.wikimapia.org/tag/7375">Wikimapia – Favela, aglomerados
+                        subnormais</a></li>
+                <li><a href="https://fogocruzado.org.br/mapadosgruposarmados" target="_blank">Fogo Cruzado – Mapa dos
+                        Grupos Armados</a></li>
+                <li><a href="https://wikifavelas.com.br/index.php/Complexo_de_favelas_da_Penha">Wiki Favelas – Complexo
+                        da Penha</a></li>
+                <li><a href="https://www.data.rio/documents/3f105a10dcf7475eae69b2514b9d6262/explore"
+                        target="_blank">Data Rio – Mapas das Áreas de Planejamento e Regiões
+                        Administrativas</a></li>
+            </ul>
+        </div>
+
+        <div class="bibliografia-grupo">
+            <h2>Referências Demográficas</h2>
+            <ul>
+                <li><a href="https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022" target="_blank">IBGE CENSO –
+                        Downloads</a></li>
+            </ul>
+        </div>
+
+        <div class="bibliografia-grupo">
+            <h2>Referências Educacionais</h2>
+            <ul>
+                <li><a href="https://dados.gov.br/dados/conjuntos-dados/inep-microdados-do-censo-escolar-da-educacao-basica"
+                        target="_blank">GOV: CENSO INEP – Educação Básica</a></li>
+                <li><a
+                        href="https://app.powerbi.com/view?r=eyJrIjoiMGVjMzIwZWQtM2IzZS00NmE0LTkwNjUtZjI1YjMyNTVhZGY0IiwidCI6IjI2ZjczODk3LWM4YWMtNGIxZS05NzhmLWVhNGMwNzc0MzRiZiJ9">IDEB
+                        Resultados – Microsoft Power BI</a></li>
+                <li><a
+                        href="https://app.powerbi.com/view?r=eyJrIjoiN2ViNDBjNDEtMTM0OC00ZmFhLWIyZWYtZjI1YjU0NzQzMTJhIiwidCI6IjI2ZjczODk3LWM4YWMtNGIxZS05NzhmLWVhNGMwNzc0MzRiZiJ9">INEP
+                        DATA – Microsoft Power BI</a></li>
+                <li><a
+                        href="https://anonymousdata.inep.gov.br/analytics/saw.dll?Dashboard&PortalPath=%2Fshared%2FCenso%20da%20Educa%C3%A7%C3%A3o%20B%C3%A1sica%2F_portal%2FCat%C3%A1logo%20de%20Escolas&Page=Pr%C3%A9-Lista%20das%20Escolas">Catálogo
+                        de Escolas – Oracle Analytics Interactive Dashboards</a></li>
+            </ul>
+        </div>
+
+        <div class="bibliografia-grupo">
+            <h2>Referências Policiais</h2>
+            <ul>
+                <li><a href="http://www0.rio.rj.gov.br/MapaUPP/">UPP Social – Mapa UPP</a></li>
+                <li><a href="https://www.policiacivil.rj.gov.br/localizeUmaDelegacia">Polícia Civil – PCERJ</a></li>
+                <li><a href="https://sepm.rj.gov.br/institucional/">Polícia Militar – PMERJ</a></li>
+            </ul>
+        </div>
+
+        <div class="bibliografia-grupo">
+            <h2>Referências sobre Criminalidade</h2>
+            <ul>
+                <li><a href="https://ispconecta.rj.gov.br/serie_historica/" target="_blank">ISP – Série Histórica</a>
+                </li>
+                <li><a href="https://www.ispdados.rj.gov.br/" target="_blank">ISP – Dados Abertos</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slide: Ferramentas Utilizadas -->
+    <section class="slide slide-ferramentas" id="bibli-ferramentas">
+        <div class="marker-page cat-bibliografia">
+            <p>TÉCNOLOGIAS</p>
+        </div>
+        <h1 class="capa-titulo">Tecnologias e Ferramentas Utilizadas</h1>
+
+        <ul class="lista-ferramentas">
+            <li><strong>Google Colab</strong> – Tratamento de dados com <em>Pandas</em>, <em>GeoPandas</em>,
+                <em>NumPy</em>, <em>Folium</em> e <em>Nominatim</em>.
+            </li>
+            <li><strong>Google Drive</strong> – Arquivamento e organização dos dados.</li>
+            <li><strong>Google Sheets</strong> – Edição e visualização de planilhas para análise.</li>
+            <li><strong>Visual Studio Code</strong> – Criação da página com HTML, CSS, JS e pequenos tratamentos em
+                Python.</li>
+            <li><strong>MapShaper</strong> – Recorte e modelagem de mapas (GeoJSON e Shapefile).</li>
+        </ul>
+    </section>
+
+    <!-- Slide: Encerramento -->
+    <section class="slide slide-encerramento" id="encer">
+        <div class="encerramento-content">
+            <h1 class="encerramento-titulo">Obrigado por chegar até aqui!</h1>
+            <p class="encerramento-texto">
+                Este projeto marca o início da <strong>Reple Social</strong>, uma ONG que acredita no poder da educação
+                e da tecnologia para transformar realidades.
+            </p>
+            <p class="encerramento-texto">
+                Nossa missão é preparar jovens para se tornarem líderes em suas comunidades, promovendo uma cultura de
+                desenvolvimento, equidade e protagonismo social.
+            </p>
+            <p class="encerramento-texto">
+                Esperamos que esta apresentação tenha contribuído para uma compreensão mais profunda sobre o Complexo da
+                Penha e inspirado novas possibilidades.
+            </p>
+            <p class="encerramento-destaque">
+                Fase I: Análise Demográfica, Territorial, Educacional e Criminal.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer-autor">
+        <p>Desenvolvido por <strong>Ares</strong> &nbsp;•&nbsp;
+
+            <a href="https://github.com/EuAres56" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    fill="currentColor">
+                    <path
+                        d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.93c.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.35-1.3-1.71-1.3-1.71-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.97.1-.75.41-1.26.75-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.3 1.2-3.11-.12-.3-.52-1.5.11-3.12 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.62.23 2.82.11 3.12.75.81 1.2 1.85 1.2 3.11 0 4.43-2.7 5.41-5.26 5.69.42.36.8 1.08.8 2.18v3.24c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z" />
+                </svg>
+                GitHub
+            </a>
+
+            &nbsp;|&nbsp;
+
+            <a href="https://www.linkedin.com/in/elizeu-sanches-69a155373" target="_blank" rel="noopener"
+                aria-label="LinkedIn">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    fill="currentColor">
+                    <path
+                        d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7.03 20.5H3.5v-11h3.53v11zm-1.77-12.5c-1.13 0-2.03-.91-2.03-2.03 0-1.13.91-2.03 2.03-2.03 1.13 0 2.03.91 2.03 2.03 0 1.13-.91 2.03-2.03 2.03zm15.24 12.5h-3.53v-5.8c0-1.38-.02-3.16-1.93-3.16-1.94 0-2.24 1.51-2.24 3.06v5.9h-3.53v-11h3.39v1.5h.05c.47-.89 1.62-1.83 3.33-1.83 3.56 0 4.22 2.34 4.22 5.37v6.96z" />
+                </svg>
+                LinkedIn
+            </a>
+        </p>
+    </footer>
+</body>
+
+<script src="script.js"></script>
+
+</html>
