@@ -1379,8 +1379,4 @@ td.fin_rod {
     /* Garante que ocupe a página toda */
     height: 100vh;
   }
-
-  html, body {
-    height: auto !important;
-  }
 }
