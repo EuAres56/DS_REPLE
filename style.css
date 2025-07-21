@@ -1368,7 +1368,8 @@ td.fin_rod {
   }
 
   .slide {
-    /* Quebra de página ANTES e DEPOIS */
+    margin: 0;
+     /* Quebra de página ANTES e DEPOIS */
     page-break-before: always;
     page-break-after: always;
     page-break-inside: avoid;
