@@ -1352,32 +1352,39 @@ td.fin_rod {
 }
 
 
+
 @media print {
-  body {
-    margin: 0;
-    padding: 0;
-  }
+    body {
+        margin: 0;
+        padding: 0;
+    }
 
-  * {
-    box-shadow: none !important;
-    overflow: visible !important;
-  }
+    * {
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
 
-  .no-print {
-    display: none !important;
-  }
+    .no-print {
+        display: none !important;
+    }
 
-  .slide {
-    margin: 0;
-     /* Quebra de página ANTES e DEPOIS */
-    page-break-before: always;
-    page-break-after: always;
-    page-break-inside: avoid;
+    .slide {
+        /* Quebra de página ANTES e DEPOIS */
+        page-break-before: always;
+        page-break-after: always;
+        page-break-inside: avoid;
 
-    /* Evita cortes */
-    break-inside: avoid;
+        /* Evita cortes */
+        break-inside: avoid;
 
-    /* Garante que ocupe a página toda */
-    height: 100vh;
-  }
+        /* Garante que ocupe a página toda */
+        height: 100vh;
+        margin: 0;
+    }
+
+    html,
+    body {
+        height: auto !important;
+        gap: 0;
+    }
 }
